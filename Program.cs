@@ -1,4 +1,4 @@
-﻿using System;
+﻿using LoyaltyPointsBusinessLogic;
 
 namespace PUPLoyaltyPointsSystem
 {
@@ -8,40 +8,27 @@ namespace PUPLoyaltyPointsSystem
         {
             Console.WriteLine("Welcome to PUP Loyalty Points System");
 
-            Console.WriteLine("Enter 1 - for Faculty Login");
-            Console.WriteLine("Enter 2 - for Student Login");
-            Console.WriteLine("Enter x - to exit");
-            
+            DisplayOptions();
 
-            Console.Write("User Input: ");
+            string facultyNumber = "2015ABC000";
 
-            string facultyNumber = "2015ABC";
+            List<string> facultyNumbers = new List<string>();
+            facultyNumbers.Add("2015ABC123");
+            facultyNumbers.Add("2015ABC111");
+            facultyNumbers.Add("2016ABC111");
+            facultyNumbers.Add("2013ABC111");
+
             string checkLogin = Console.ReadLine();
 
             string studentNumber = "2011-00066-BN-0";
+
             int studentPoints = 100;
 
             while (checkLogin != "x")
             {
                 if (checkLogin == "1")
                 {
-                    Console.Write("Enter faculty number: ");
-                    string facultyInput = Console.ReadLine();
-
-                    if (facultyNumber == facultyInput)
-                    {
-                        Console.Write("Enter the student number you want to give points to:");
-
-                        string checkStudentNumber = Console.ReadLine();
-
-                        if (checkStudentNumber == studentNumber)
-                        {
-                            Console.Write("Enter points you want to give: ");
-                            int pointsToGive = Convert.ToInt16(Console.ReadLine());
-                            studentPoints += pointsToGive;
-                        }
-                    }
-
+                    studentPoints = ProcessFacultyModule(facultyNumber, studentNumber, studentPoints);
                 }
                 else if (checkLogin == "2")
                 {
@@ -78,12 +65,41 @@ namespace PUPLoyaltyPointsSystem
                         }
                     }
                 }
-                Console.WriteLine("Enter 1 - for Faculty Login");
-                Console.WriteLine("Enter 2 - for Student Login");
-                Console.WriteLine("Enter x - to exit");
-                Console.Write("User Input: ");
+                DisplayOptions();
                 checkLogin = Console.ReadLine();
             }            
+        }
+
+        static void DisplayOptions()
+        {
+            Console.WriteLine("Enter 1 - for Faculty Login");
+            Console.WriteLine("Enter 2 - for Student Login");
+            Console.WriteLine("Enter x - to exit");
+            Console.Write("User Input: ");
+        }
+
+        static int ProcessFacultyModule(string facultyNumber, string studentNumber, int studentPoints)
+        {
+            Console.Write("Enter faculty number: ");
+            string facultyInput = Console.ReadLine();
+
+            AuthenticationLogic businesslogic = new AuthenticationLogic();
+
+            if (businesslogic.IsFacultyNumberCorrect(facultyInput))
+            {
+                Console.Write("Enter the student number you want to give points to:");
+
+                string checkStudentNumber = Console.ReadLine();
+
+                if (checkStudentNumber == studentNumber)
+                {
+                    Console.Write("Enter points you want to give: ");
+                    int pointsToGive = Convert.ToInt16(Console.ReadLine());
+                    studentPoints += pointsToGive;
+                }
+            }
+
+            return studentPoints;
         }
     }
 }

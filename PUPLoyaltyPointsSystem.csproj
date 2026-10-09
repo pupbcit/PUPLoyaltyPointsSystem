@@ -7,4 +7,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="LoyaltyPointsBusinessLogic\**" />
+    <Compile Remove="LoyaltyPointsData\**" />
+    <EmbeddedResource Remove="LoyaltyPointsBusinessLogic\**" />
+    <EmbeddedResource Remove="LoyaltyPointsData\**" />
+    <None Remove="LoyaltyPointsBusinessLogic\**" />
+    <None Remove="LoyaltyPointsData\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="LoyaltyPointsBusinessLogic\LoyaltyPointsBusinessLogic.csproj" />
+  </ItemGroup>
+
 </Project>

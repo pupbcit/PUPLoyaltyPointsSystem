@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Solution Items/" />
+  <Project Path="LoyaltyPointsBusinessLogic/LoyaltyPointsBusinessLogic.csproj" Id="1bd9ae3d-19c5-4002-bf38-f07576f8e700" />
+  <Project Path="LoyaltyPointsData/LoyaltyPointsData.csproj" Id="6260a41a-f433-4ed1-b36b-e14d2e973cdc" />
   <Project Path="PUPLoyaltyPointsSystem.csproj" />
 </Solution>
