@@ -5,15 +5,21 @@ namespace LoyaltyPointsBusinessLogic
     public class AuthenticationLogic
     {
         UserData userData = new UserData();
+        StudentDataService studentDS = new StudentDataService();
+        FacultyDataService facultyDS = new FacultyDataService();
+
+        FacultyJsonDataService facultyJsonDS;
 
         public bool IsFacultyNumberCorrect(string userinput)
         {
-            return userinput == userData.facultyNumber;
+            facultyJsonDS = new FacultyJsonDataService();
+            return facultyDS.IsFacultyNumberExists(userinput);
         }
 
         public bool IsStudentNumberCorrect(string userinput)
         {
-            return userinput == userData.studentNumber;
+
+            return studentDS.IsStudentNumberExists(userinput);
         }
     }
 }
