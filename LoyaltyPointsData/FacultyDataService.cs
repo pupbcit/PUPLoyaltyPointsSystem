@@ -6,8 +6,6 @@ namespace LoyaltyPointsData
 {
     public class FacultyDataService
     {
-        private List<string> facultyNumbers = new List<string>();
-
         public FacultyDataService()
         {
             PopulateDummyStudentNumbers();
@@ -15,27 +13,23 @@ namespace LoyaltyPointsData
 
         private void PopulateDummyStudentNumbers()
         {
-            facultyNumbers.Add("2015ABC000");
-            facultyNumbers.Add("2016ABC000");
-            facultyNumbers.Add("2017ABC000");
-            facultyNumbers.Add("2018ABC000");
-            facultyNumbers.Add("2019ABC000");
+            FacultyNumbers. Add(new Faculty() { FacultyID = "2016ABC000", FacultyName = "Indaleen" });
+            FacultyNumbers. Add(new Faculty() { FacultyID = "2015ABC000", FacultyName = "Hedwig" });
+            FacultyNumbers. Add(new Faculty() { FacultyID = "2014ABC000", FacultyName = "Buckbeak" });
+            
         }
 
-        public List<string> RetriveAllFacultyNumbers()
-        {
-            return facultyNumbers;
-        }
+        public List<Faculty> FacultyNumbers { get; } = new List<Faculty>();
 
         public bool IsFacultyNumberExists(string facultynumber)
         {
-            foreach (string number in facultyNumbers)
-            {
-                if (number.Equals(facultynumber.Trim(), StringComparison.OrdinalIgnoreCase))
-                {
-                    return true;
-                }
-            }
+            //foreach (string number in FacultyNumbers)
+            //{
+            //    if (number.Equals(facultynumber.Trim(), StringComparison.OrdinalIgnoreCase))
+            //    {
+            //        return true;
+            //    }
+            //}
 
             return false;
         }

@@ -13,7 +13,7 @@ namespace LoyaltyPointsBusinessLogic
         public bool IsFacultyNumberCorrect(string userinput)
         {
             facultyJsonDS = new FacultyJsonDataService();
-            return facultyDS.IsFacultyNumberExists(userinput);
+            return facultyJsonDS.IsFacultyNumberExists(userinput);
         }
 
         public bool IsStudentNumberCorrect(string userinput)
