@@ -1,0 +1,22 @@
+[
+  {
+    "StudentID": "2011-00066-BN-0",
+    "StudentName": "Juan Dela Cruz",
+    "Points": 150.0
+  },
+  {
+    "StudentID": "2012-00066-BN-0",
+    "StudentName": "Maria Clara",
+    "Points": 87.5
+  },
+  {
+    "StudentID": "2013-00066-BN-0",
+    "StudentName": "Andres Bautista",
+    "Points": 0.0
+  },
+  {
+    "StudentID": "2014-00066-BN-0",
+    "StudentName": "Liza Ramos",
+    "Points": 212.25
+  }
+]
