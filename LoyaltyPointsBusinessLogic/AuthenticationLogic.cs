@@ -1,4 +1,5 @@
 ﻿using LoyaltyPointsData;
+using System.Net.Http.Headers;
 
 namespace LoyaltyPointsBusinessLogic
 {
@@ -9,6 +10,7 @@ namespace LoyaltyPointsBusinessLogic
         FacultyDataService facultyDS = new FacultyDataService();
 
         FacultyJsonDataService facultyJsonDS;
+        StudentJsonDataService studentJsonDS;
 
         public bool IsFacultyNumberCorrect(string userinput)
         {
@@ -18,8 +20,8 @@ namespace LoyaltyPointsBusinessLogic
 
         public bool IsStudentNumberCorrect(string userinput)
         {
-
-            return studentDS.IsStudentNumberExists(userinput);
+            studentJsonDS = new StudentJsonDataService();
+            return studentJsonDS.IsStudentNumberExists(userinput);
         }
     }
 }
